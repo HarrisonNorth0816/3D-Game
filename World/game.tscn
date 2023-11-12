@@ -1,0 +1,193 @@
+[gd_scene load_steps=19 format=3 uid="uid://x0kk3757h0uw"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_th5q2"]
+[ext_resource type="Script" path="res://Player/Camera3D.gd" id="2_5gf7x"]
+[ext_resource type="ArrayMesh" uid="uid://kqcem4b74ivv" path="res://Assets/Gun.obj" id="2_txnf1"]
+[ext_resource type="Script" path="res://World/Menu.gd" id="4_vegvx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2g8r"]
+albedo_color = Color(0.498039, 0.356863, 0.160784, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4h0em"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rj3yg"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xre7y"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3jgmk"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x0mik"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dw08c"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5ci5h"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p806c"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a6ne"]
+albedo_color = Color(0.133333, 0.360784, 0.176471, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u8gew"]
+points = PackedVector3Array(-25, -0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, -0.5, 25, -25, 0.5, 25, 25, 0.5, -25, 25, -0.5, 25, 25, 0.5, 25)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ulno"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfhdf"]
+size = Vector3(0.8, 0.2, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjdh1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node3D"]
+
+[node name="Church" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8998, 6.99171, 0)
+use_collision = true
+size = Vector3(10.8695, 12.7183, 7.74319)
+material = SubResource("StandardMaterial3D_m2g8r")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Church/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171211, 0.458228, 0)
+operation = 2
+size = Vector3(10.6856, 11.3337, 7.0835)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Church/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25045, 0, 0)
+operation = 2
+size = Vector3(0.38821, 2.83675, 2.13792)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 12.9595, 5.08514, 0)
+mesh = SubResource("BoxMesh_4h0em")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 12.9595, 5.08514, 0)
+shape = SubResource("ConvexPolygonShape3D_rj3yg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 11.9175, 4.1681, 0)
+mesh = SubResource("BoxMesh_4h0em")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 11.9175, 4.1681, 0)
+shape = SubResource("ConvexPolygonShape3D_xre7y")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 10.7376, 3.33198, 0)
+mesh = SubResource("BoxMesh_4h0em")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 10.7376, 3.33198, 0)
+shape = SubResource("ConvexPolygonShape3D_3jgmk")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 9.72486, 2.36056, 0)
+mesh = SubResource("BoxMesh_4h0em")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 9.72486, 2.36056, 0)
+shape = SubResource("ConvexPolygonShape3D_x0mik")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 8.48575, 1.40905, 0)
+mesh = SubResource("BoxMesh_4h0em")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 8.48575, 1.40905, 0)
+shape = SubResource("ConvexPolygonShape3D_dw08c")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 7.66503, 0.602323, 0)
+mesh = SubResource("BoxMesh_4h0em")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Church"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 7.66503, 0.602323, 0)
+shape = SubResource("ConvexPolygonShape3D_5ci5h")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0343266, 0.210026, -0.118886)
+mesh = SubResource("BoxMesh_p806c")
+surface_material_override/0 = SubResource("StandardMaterial3D_6a6ne")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("ConvexPolygonShape3D_u8gew")
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.86698)
+script = ExtResource("1_th5q2")
+
+[node name="Body" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+shape = SubResource("CapsuleShape3D_8ulno")
+
+[node name="Feet" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("BoxShape3D_qfhdf")
+
+[node name="Pivot" type="Node3D" parent="player"]
+
+[node name="Camera3D" type="Camera3D" parent="player/Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.04349, -0.531081)
+current = true
+fov = 110.0
+script = ExtResource("2_5gf7x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/Pivot"]
+transform = Transform3D(-0.226498, 0, -0.974012, 0, 1, 0, 0.974012, 0, -0.226498, -0.495019, 1.87754, -1.04193)
+mesh = ExtResource("2_txnf1")
+surface_material_override/0 = SubResource("StandardMaterial3D_bjdh1")
+
+[node name="Menu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_vegvx")
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 0
+offset_right = 1145.0
+offset_bottom = 647.0
+color = Color(0, 0, 0, 0.2)
+
+[node name="Restart" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 289.0
+offset_right = 732.0
+offset_bottom = 334.0
+text = "restart"
+
+[node name="Quit" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = -184.0
+offset_right = -251.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit
+"
+
+[connection signal="pressed" from="Menu/Restart" to="Menu" method="_on_restart_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="Menu" method="_on_quit_pressed"]
