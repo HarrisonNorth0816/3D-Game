@@ -56,14 +56,14 @@ size = Vector3(10.8695, 12.7183, 7.74319)
 material = SubResource("StandardMaterial3D_m2g8r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Church/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171211, 0.458228, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0255527, 0.458228, 0)
 operation = 2
-size = Vector3(10.6856, 11.3337, 7.0835)
+size = Vector3(10.3838, 11.3337, 7.0835)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Church/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25045, 0, 0)
 operation = 2
-size = Vector3(0.38821, 2.83675, 2.13792)
+size = Vector3(7.58782, 2.83675, 2.13792)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Church"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 12.9595, 5.08514, 0)
