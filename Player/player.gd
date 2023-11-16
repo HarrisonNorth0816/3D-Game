@@ -18,8 +18,20 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -MOUSE_RANGE, MOUSE_RANGE)
 		# left-right motion, applied to the Player
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+	
+	if event.is_action_pressed("Menu"):
+		var menu = get_node("/root/Game/World/Menu.gd")
+		if menu == null:
+			get_tree().quit()
+		else:
+			if not menu.visible:
+				menu.show()
+				get_tree().paused = true 	# pause the game while the menu is visible
+			else:
+				menu.hide()
+				get_tree().paused = false
 
-
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
