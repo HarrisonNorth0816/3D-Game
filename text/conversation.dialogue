@@ -1,0 +1,15 @@
+~ main
+
+Villager: Hello father, thank you for making it here so quickly.'
+Father John: Hello my child, once I read your letter I got here as quickly as possible.
+~ questions
+- What Happened here?
+	Villager: There was a routine service, however the holy water turned red and demons shot out of the ground, they killed several including Garcia. 
+	=> questions
+- What do you want me to do?
+	Villager: You have that holy-blessed shotgun no? Could that not defeat the demons? 
+	=> questions
+- Goodbye my child => END!
+
+
+=> END

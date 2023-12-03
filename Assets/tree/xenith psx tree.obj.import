@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://lqww7325y13i"
+path="res://.godot/imported/xenith psx tree.obj-4e768884f46003dfd7b19dec4752c455.mesh"
+
+[deps]
+
+files=["res://.godot/imported/xenith psx tree.obj-4e768884f46003dfd7b19dec4752c455.mesh"]
+
+source_file="res://Assets/tree/xenith psx tree.obj"
+dest_files=["res://.godot/imported/xenith psx tree.obj-4e768884f46003dfd7b19dec4752c455.mesh", "res://.godot/imported/xenith psx tree.obj-4e768884f46003dfd7b19dec4752c455.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

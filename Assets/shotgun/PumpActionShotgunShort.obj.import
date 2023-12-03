@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dvpoib7vptljs"
+path="res://.godot/imported/PumpActionShotgunShort.obj-b99beafbfca7a15489c0d73ddc6eadd0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PumpActionShotgunShort.obj-b99beafbfca7a15489c0d73ddc6eadd0.mesh"]
+
+source_file="res://Assets/shotgun/PumpActionShotgunShort.obj"
+dest_files=["res://.godot/imported/PumpActionShotgunShort.obj-b99beafbfca7a15489c0d73ddc6eadd0.mesh", "res://.godot/imported/PumpActionShotgunShort.obj-b99beafbfca7a15489c0d73ddc6eadd0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

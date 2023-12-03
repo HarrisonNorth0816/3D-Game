@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddsfdfovdt6nh"]
+
+[ext_resource type="Texture2D" uid="uid://bil8q8espildx" path="res://Assets/shotgun/PAShotgunText.png" id="1_rel5h"]
+[ext_resource type="ArrayMesh" uid="uid://dvpoib7vptljs" path="res://Assets/shotgun/PumpActionShotgunShort.obj" id="2_51ea2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xb2h2"]
+albedo_texture = ExtResource("1_rel5h")
+
+[sub_resource type="Animation" id="Animation_lplx1"]
+resource_name = "Shoot"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00589001, 0, -0.000246525), Vector3(-0.5, 0.01, 0.5), Vector3(0.00589001, 0, -0.000246525)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_so3k5"]
+_data = {
+"Shoot": SubResource("Animation_lplx1")
+}
+
+[sub_resource type="Animation" id="Animation_66ue6"]
+resource_name = "pump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pfyqh"]
+_data = {
+"pump": SubResource("Animation_66ue6")
+}
+
+[node name="Shotgun" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00589001, 0, -0.000246525)
+material_override = SubResource("StandardMaterial3D_xb2h2")
+mesh = ExtResource("2_51ea2")
+
+[node name="Shoot" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_so3k5")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pfyqh")
+}
