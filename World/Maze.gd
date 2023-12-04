@@ -33,7 +33,7 @@ var tiles = [
 	,preload("res://Maze/Tile15.tscn")
 ]
 
-var tile_size = 2 						# 2-meter tiles
+var tile_size = 4 						# 2-meter tiles
 var width = 20  						# width of map (in tiles)
 var height = 20  						# height of map (in tiles)
 

@@ -31,6 +31,7 @@ size = Vector3(2, 0.1, 2)
 size = Vector3(2, 0.1, 2)
 
 [node name="Tile" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="StaticBody" type="StaticBody3D" parent="."]
 
