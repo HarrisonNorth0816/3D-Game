@@ -67,7 +67,7 @@ data = PackedVector3Array(0.8963, 2.0896, -2.1098, 0, 2.0896, -2.1098, 1.0184, 1
 
 [sub_resource type="GDScript" id="GDScript_hffeg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xthkx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mnlp"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("11_t2jje")
@@ -102,7 +102,7 @@ _surfaces = [{
 "format": 4127,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_xthkx"),
+"material": SubResource("ShaderMaterial_1mnlp"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127, 255, 127, 255, 191)
