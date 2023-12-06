@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Global="*res://Global.gd"
 
 [dialogue_manager]
 

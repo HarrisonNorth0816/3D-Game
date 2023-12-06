@@ -33,9 +33,9 @@ var tiles = [
 	,preload("res://Maze/Tile15.tscn")
 ]
 
-var tile_size = 4 						# 2-meter tiles
-var width = 20  						# width of map (in tiles)
-var height = 20  						# height of map (in tiles)
+var tile_size = 2 						# 2-meter tiles
+var width = 3  						# width of map (in tiles)
+var height = 3  						# height of map (in tiles)
 
 func _ready():
 	randomize()
@@ -75,6 +75,8 @@ func make_maze():
 			unvisited.erase(current)
 		elif stack:
 			current = stack.pop_back()
+	map[0][0] &= 14		# remove the north wall
+	map[width-1][height-1] &= 11	# remove the south wall
 	for x in range(width):
 		for z in range(height):
 			var tile = tiles[map[x][z]].instantiate()
