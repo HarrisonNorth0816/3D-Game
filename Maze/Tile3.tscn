@@ -1,4 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dao257412xorq"]
+[gd_scene load_steps=15 format=3 uid="uid://dao257412xorq"]
+
+[ext_resource type="Texture2D" uid="uid://bsmj5nmgnxvlj" path="res://Assets/Skulls.png" id="1_7kr2l"]
+[ext_resource type="Texture2D" uid="uid://dnncj863avso" path="res://Assets/brick.png" id="2_lvykl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76iqp"]
+albedo_texture = ExtResource("1_7kr2l")
+uv1_scale = Vector3(15, 15, 15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sr0k7"]
 albedo_color = Color(0.807843, 0.831373, 0.854902, 1)
@@ -10,6 +17,10 @@ size = Vector3(2, 2, 0.1)
 [sub_resource type="BoxShape3D" id="3"]
 size = Vector3(2, 2, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjmtc"]
+albedo_texture = ExtResource("1_7kr2l")
+uv1_scale = Vector3(15, 15, 15)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsl56"]
 albedo_color = Color(0.807843, 0.831373, 0.854902, 1)
 
@@ -19,6 +30,9 @@ size = Vector3(0.1, 2, 2)
 
 [sub_resource type="BoxShape3D" id="5"]
 size = Vector3(0.1, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx6qb"]
+albedo_texture = ExtResource("2_lvykl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnr0r"]
 albedo_color = Color(0.286275, 0.313726, 0.341176, 1)
@@ -37,6 +51,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="N" type="MeshInstance3D" parent="StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+material_override = SubResource("StandardMaterial3D_76iqp")
 mesh = SubResource("BoxMesh_lik4k")
 
 [node name="N_Collision" type="CollisionShape3D" parent="StaticBody"]
@@ -45,6 +60,7 @@ shape = SubResource("3")
 
 [node name="E" type="MeshInstance3D" parent="StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+material_override = SubResource("StandardMaterial3D_qjmtc")
 mesh = SubResource("BoxMesh_88gsa")
 
 [node name="E_Collision" type="CollisionShape3D" parent="StaticBody"]
@@ -52,6 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 shape = SubResource("5")
 
 [node name="Ground" type="MeshInstance3D" parent="StaticBody"]
+material_override = SubResource("StandardMaterial3D_bx6qb")
 mesh = SubResource("BoxMesh_io8i8")
 
 [node name="Ground_Collision" type="CollisionShape3D" parent="StaticBody"]

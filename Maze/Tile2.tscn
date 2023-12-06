@@ -1,4 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://blsvnb7v0vnrt"]
+[gd_scene load_steps=11 format=3 uid="uid://blsvnb7v0vnrt"]
+
+[ext_resource type="Texture2D" uid="uid://bsmj5nmgnxvlj" path="res://Assets/Skulls.png" id="1_d4xq8"]
+[ext_resource type="Texture2D" uid="uid://dnncj863avso" path="res://Assets/brick.png" id="2_4u72p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0b8fi"]
+albedo_texture = ExtResource("1_d4xq8")
+uv1_scale = Vector3(15, 15, 15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0c5r"]
 albedo_color = Color(0.807843, 0.831373, 0.854902, 1)
@@ -9,6 +16,9 @@ size = Vector3(0.1, 2, 2)
 
 [sub_resource type="BoxShape3D" id="5"]
 size = Vector3(0.1, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2nry"]
+albedo_texture = ExtResource("2_4u72p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swhwc"]
 albedo_color = Color(0.286275, 0.313726, 0.341176, 1)
@@ -27,6 +37,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="E" type="MeshInstance3D" parent="StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+material_override = SubResource("StandardMaterial3D_0b8fi")
 mesh = SubResource("BoxMesh_71whg")
 
 [node name="E_Collision" type="CollisionShape3D" parent="StaticBody"]
@@ -34,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 shape = SubResource("5")
 
 [node name="Ground" type="MeshInstance3D" parent="StaticBody"]
+material_override = SubResource("StandardMaterial3D_w2nry")
 mesh = SubResource("BoxMesh_4vpsr")
 
 [node name="Ground_Collision" type="CollisionShape3D" parent="StaticBody"]

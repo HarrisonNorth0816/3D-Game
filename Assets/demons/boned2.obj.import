@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://clxe1t5xrgmd"
+path="res://.godot/imported/boned2.obj-38f377d52b4685dfb187822f2b00964c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/boned2.obj-38f377d52b4685dfb187822f2b00964c.mesh"]
+
+source_file="res://Assets/demons/boned2.obj"
+dest_files=["res://.godot/imported/boned2.obj-38f377d52b4685dfb187822f2b00964c.mesh", "res://.godot/imported/boned2.obj-38f377d52b4685dfb187822f2b00964c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

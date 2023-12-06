@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf4msrdvcyrjk"]
+
+[ext_resource type="Texture2D" uid="uid://xijrc2j156aw" path="res://Assets/torch/fire1.png" id="1_ltl1n"]
+[ext_resource type="Texture2D" uid="uid://dffh2usggipqi" path="res://Assets/torch/fire2.png" id="2_cmjpm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sgrt"]
+albedo_color = Color(0.458824, 0.360784, 0.203922, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_of3m3"]
+material = SubResource("StandardMaterial3D_2sgrt")
+top_radius = 0.3
+bottom_radius = 0.1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivi7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ltl1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cmjpm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0gf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ltl1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cmjpm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Torch" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_of3m3")
+
+[node name="Fire1" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.32195, 0.00161442)
+sprite_frames = SubResource("SpriteFrames_ivi7t")
+autoplay = "default"
+frame_progress = 0.232079
+
+[node name="Fire2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.141058, 0, -1.49335, 0, 1.5, 0, 1.49335, 0, 0.141058, 0, 1.31412, -0.0012908)
+sprite_frames = SubResource("SpriteFrames_g0gf3")
+autoplay = "default"
+frame_progress = 0.585835
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.13605, 0)

@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+
 var speed
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
@@ -20,8 +21,13 @@ var played = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
+var bullet = load("res://Player/bullet.tscn")
+var instance
+
 @onready var head = $Pivot
 @onready var camera = $Pivot/Camera3D
+@onready var gun_anim = $Pivot/Camera3D/Shotgun/Shoot
+@onready var gun_barrel = $Pivot/Camera3D/Shotgun/RayCast3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -74,6 +80,16 @@ func _physics_process(delta):
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
+	if Input.is_action_pressed("shoot"):
+		if !gun_anim.is_playing():
+			$Shoot.play()
+			gun_anim.play("Shoot")
+			$Rack.play()
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
+			
 	move_and_slide()
 
 func _headbob(time) -> Vector3:

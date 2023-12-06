@@ -1,34 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://fb2dlevpmgwg"]
+[gd_scene load_steps=15 format=3 uid="uid://fb2dlevpmgwg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgbcp"]
-albedo_color = Color(0.807843, 0.831373, 0.854902, 1)
+[ext_resource type="Material" uid="uid://btjncfdvsunq" path="res://Maze/mazewalls.tres" id="1_woogk"]
+[ext_resource type="Texture2D" uid="uid://bsmj5nmgnxvlj" path="res://Assets/Skulls.png" id="2_g34yd"]
+[ext_resource type="Texture2D" uid="uid://dnncj863avso" path="res://Assets/brick.png" id="3_moeft"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6rv4"]
-material = SubResource("StandardMaterial3D_hgbcp")
+material = ExtResource("1_woogk")
 size = Vector3(2, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="3"]
 size = Vector3(2, 2, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4e24"]
-albedo_color = Color(0.807843, 0.831373, 0.854902, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo0k7"]
+albedo_texture = ExtResource("2_g34yd")
+uv1_scale = Vector3(15, 15, 15)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wa1tp"]
-material = SubResource("StandardMaterial3D_e4e24")
+material = SubResource("StandardMaterial3D_uo0k7")
 size = Vector3(2, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="7"]
 size = Vector3(2, 2, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktbjm"]
-albedo_color = Color(0.807843, 0.831373, 0.854902, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_1e7x0"]
-material = SubResource("StandardMaterial3D_ktbjm")
+material = ExtResource("1_woogk")
 size = Vector3(0.1, 2, 2)
 
 [sub_resource type="BoxShape3D" id="9"]
 size = Vector3(0.1, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utjwl"]
+albedo_texture = ExtResource("3_moeft")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ayn2"]
 albedo_color = Color(0.286275, 0.313726, 0.341176, 1)
@@ -70,6 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 shape = SubResource("9")
 
 [node name="Ground" type="MeshInstance3D" parent="StaticBody"]
+material_override = SubResource("StandardMaterial3D_utjwl")
 mesh = SubResource("BoxMesh_wlxyk")
 
 [node name="Ground_Collision" type="CollisionShape3D" parent="StaticBody"]

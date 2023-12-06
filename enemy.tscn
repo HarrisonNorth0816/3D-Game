@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxvows6bhsj5j"]
+
+[ext_resource type="PackedScene" uid="uid://noimutj2c0nk" path="res://Assets/demons/the_thin_man_lowpoly.glb" id="1_ipmy8"]
+[ext_resource type="Script" path="res://testenemty.gd" id="2_eyadh"]
+
+[node name="the_thin_man_lowpoly" groups=["enemies"] instance=ExtResource("1_ipmy8")]
+script = ExtResource("2_eyadh")
+
+[node name="Skeleton3D" parent="Sketchfab_model/f7a75793298746beaa62a9bc4baeb47c_fbx/Object_2/RootNode/Object_4" index="0"]
+bones/1/position = Vector3(0.00837459, 1.69787, 0.0269546)
+bones/1/rotation = Quaternion(0.174786, 0.00360496, -0.0251372, 0.984279)
+bones/2/rotation = Quaternion(0.136424, 0.0292146, 0.0357116, 0.989575)
+bones/3/rotation = Quaternion(0.0723844, 0.00521915, -0.0021923, 0.997361)
+bones/4/rotation = Quaternion(0.0723744, 0.00527224, -0.00230248, 0.997361)
+bones/5/rotation = Quaternion(-0.0248167, -0.00834889, 0.00264056, 0.999654)
+bones/6/rotation = Quaternion(0.0132732, -0.0414374, 0.016611, 0.998915)
+bones/8/rotation = Quaternion(0.657867, 0.323812, -0.566652, 0.375849)
+bones/9/rotation = Quaternion(0.192306, -0.126983, 0.17355, 0.957483)
+bones/10/rotation = Quaternion(-0.00579868, -0.107393, 0.270743, 0.956625)
+bones/11/rotation = Quaternion(0.00931376, 0.14153, 0.197206, 0.970048)
+bones/12/rotation = Quaternion(0.129473, -0.0126379, -0.0306168, 0.99103)
+bones/13/rotation = Quaternion(0.209819, 0.0172413, -0.10046, 0.972413)
+bones/14/rotation = Quaternion(0.0707173, 0.0380538, -0.204099, 0.975651)
+bones/16/rotation = Quaternion(0.641739, -0.346723, 0.559897, 0.393025)
+bones/17/rotation = Quaternion(0.152945, 0.0795174, -0.254499, 0.951586)
+bones/18/rotation = Quaternion(-0.00394171, 0.0779049, -0.196345, 0.977427)
+bones/19/rotation = Quaternion(-0.0316714, 0.0161811, -0.121094, 0.992004)
+bones/20/rotation = Quaternion(0.08563, -0.558196, -0.0926544, 0.820061)
+bones/21/rotation = Quaternion(0.435424, -0.0893982, -0.19644, 0.873971)
+bones/22/rotation = Quaternion(0.0709637, -0.123814, -0.128475, 0.981391)
+bones/24/rotation = Quaternion(0.0144003, 0.543419, 0.837075, -0.061596)
+bones/25/rotation = Quaternion(-0.814484, -0.0143737, 0.00294567, 0.580001)
+bones/26/rotation = Quaternion(0.510741, 0.049825, 0.0328549, 0.857661)
+bones/27/rotation = Quaternion(0.309553, -0.14599, 0.0490997, 0.938325)
+bones/29/rotation = Quaternion(-0.100768, 0.32412, 0.94038, -0.0218607)
+bones/30/rotation = Quaternion(-0.596596, 0.0398277, 0.0301003, 0.800988)
+bones/31/rotation = Quaternion(0.719916, -0.0507665, -0.0659334, 0.689055)
+bones/32/rotation = Quaternion(0.450447, 0.126548, -0.0552013, 0.882064)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]

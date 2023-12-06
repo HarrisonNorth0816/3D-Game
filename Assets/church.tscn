@@ -126,6 +126,7 @@ shape = SubResource("ConcavePolygonShape3D_s8b1l")
 [node name="Front" type="CSGBox3D" parent="walls"]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -9.51088, 7.64256, 0)
 material_override = SubResource("StandardMaterial3D_tu17i")
+use_collision = true
 size = Vector3(20, 15, 1)
 
 [node name="Door" type="CSGBox3D" parent="walls/Front"]
