@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2plb8gyesboc"]
+
+[ext_resource type="Script" path="res://Maze/Maze.gd" id="1_55hof"]
+
+[node name="MazeScene" type="Node3D"]
+
+[node name="Maze" type="Node3D" parent="."]
+script = ExtResource("1_55hof")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 26.8732, 0)
