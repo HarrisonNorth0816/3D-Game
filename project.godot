@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="First-person-shooter"
-run/main_scene="res://World/game.tscn"
+run/main_scene="res://World/Title.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
 [autoload]

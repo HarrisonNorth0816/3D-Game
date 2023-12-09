@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmntn723o4r7r"]
+
+[ext_resource type="Script" path="res://Assets/Grenade.gd" id="1_06g3o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xvlmo"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_v2kuv"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sulji"]
+radius = 5.0
+
+[node name="Grenade" type="RigidBody3D"]
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_06g3o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_xvlmo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_v2kuv")
+
+[node name="BlastRadius" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlastRadius"]
+shape = SubResource("SphereShape3D_sulji")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

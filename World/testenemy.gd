@@ -22,9 +22,17 @@ func update_target_location(target_location):
 func hit(dam):
 	health -= dam
 	if health <= 0:
+		Global.update_deaths()
 		queue_free()
 
 func _on_static_body_3d_body_part_hit(dam):
 	health -= dam
 	if health <= 0:
 		queue_free()
+
+
+
+
+func _on_area_3d_body_entered(body):
+	if body.name == "Player":
+		body.die()

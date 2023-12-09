@@ -97,3 +97,7 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ) * BOB_AMP
 	return pos
+
+
+func die():
+	get_tree().change_scene_to_file("res://Assets/end screen/death.tscn")

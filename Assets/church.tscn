@@ -198,7 +198,7 @@ mesh = SubResource("BoxMesh_pjn3d")
 shape = SubResource("ConcavePolygonShape3D_28am4")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Roof"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34309, 41.5995, 0.224868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34309, 41.5995, -0.00980455)
 mesh = SubResource("CapsuleMesh_n4dqu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof/MeshInstance3D7"]

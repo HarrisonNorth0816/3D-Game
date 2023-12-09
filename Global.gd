@@ -1,18 +1,16 @@
 extends Node
 
+var kills = 0 
+
+
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS		# global should never be paused
+	
 
-func _unhandled_input(event):
-	if event.is_action_pressed("Menu"):
-		var menu = get_node_or_null("/root/Game/World/Menu")
-		if menu == null:
-			get_tree().quit()
-		else:
-			if menu.visible:
-				get_tree().paused = false 	# pause the game while the menu is visible
-				menu.show()
-			else:
-				get_tree().paused = true
-				menu.show()
-				
+func update_deaths():
+	kills += 1
+	if kills == 1:
+		get_tree().change_scene_to_file("res://Assets/end screen/win.tscn")
+	
+
+
