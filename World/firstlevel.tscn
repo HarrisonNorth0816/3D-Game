@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://World/exitDoor.gd" id="2_i02ra"]
 [ext_resource type="PackedScene" uid="uid://bcp46ywxw4s5k" path="res://World/decor/table.tscn" id="4_xjule"]
 [ext_resource type="PackedScene" uid="uid://cuhdsw1gjxl1r" path="res://World/decor/light.tscn" id="5_7bbve"]
-[ext_resource type="Texture2D" uid="uid://bxi67vrnp0tam" path="res://Assets/paper.png" id="5_r6ftb"]
+[ext_resource type="PackedScene" uid="uid://c1qrpxvobwvwm" path="res://paper.tscn" id="5_itdv6"]
 [ext_resource type="PackedScene" uid="uid://wu65p1ua4kdn" path="res://Assets/pew.tscn" id="7_wysf6"]
 [ext_resource type="Texture2D" uid="uid://ipb3uo2fb6du" path="res://Assets/cross.png" id="8_wvdca"]
 [ext_resource type="PackedScene" uid="uid://ddsfdfovdt6nh" path="res://Player/shotgun.tscn" id="9_ifyy1"]
@@ -81,7 +81,6 @@ shape = SubResource("ConcavePolygonShape3D_yu4st")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.56011, 0)
-visible = false
 mesh = SubResource("PlaneMesh_cgfl4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Room/Ceiling"]
@@ -151,9 +150,7 @@ shape = SubResource("BoxShape3D_riokv")
 [node name="Node3D" parent="Decor/table" instance=ExtResource("4_xjule")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.97449, 0.201138, -3.22874)
 
-[node name="Sprite3D" type="Sprite3D" parent="Decor/table"]
-transform = Transform3D(0.760304, -0.649567, -2.83935e-08, 0, -4.37114e-08, 1, -0.649567, -0.760304, -3.32339e-08, -2.40115, 1.27961, -2.65327)
-texture = ExtResource("5_r6ftb")
+[node name="Sprite3D" parent="Decor/table" instance=ExtResource("5_itdv6")]
 
 [node name="lamp" type="Node" parent="Decor"]
 
@@ -179,5 +176,8 @@ texture = ExtResource("8_wvdca")
 transform = Transform3D(0.14684, -0.46954, -0.0892779, 0.475251, 0.153356, -0.0248765, 0.0507435, -0.0775531, 0.491336, 4.62981, 1.06734, -1.59636)
 
 [node name="Player" parent="." instance=ExtResource("1_jtt0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69695, 0, 0.528851)
+collision_layer = 9
+collision_mask = 9
 
 [connection signal="body_entered" from="Room/Door/doorExit" to="Room/Door/doorExit" method="_on_body_entered"]

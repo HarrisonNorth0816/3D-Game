@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1qrpxvobwvwm"]
+
+[ext_resource type="Texture2D" uid="uid://bxi67vrnp0tam" path="res://Assets/paper.png" id="1_uoq8a"]
+[ext_resource type="Script" path="res://paper.gd" id="2_ke1ji"]
+[ext_resource type="FontFile" uid="uid://be5jpsm3f03yg" path="res://Assets/end screen/easvhs.ttf" id="3_vhopp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8ins"]
+size = Vector3(1.19803, 1.4859, 0.432799)
+
+[node name="Paper" type="Sprite3D"]
+transform = Transform3D(0.760304, -0.649567, -2.83935e-08, 0, -4.37114e-08, 1, -0.649567, -0.760304, -3.32339e-08, -2.40115, 1.27961, -2.65327)
+texture = ExtResource("1_uoq8a")
+script = ExtResource("2_ke1ji")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_n8ins")
+
+[node name="Read" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="Read"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Read/Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Label" type="Label" parent="Read/Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 28.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vhopp")
+theme_override_font_sizes/font_size = 35
+text = "TEST"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
