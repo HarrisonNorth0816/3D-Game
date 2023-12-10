@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhoo6ih4t8fi"]
+[gd_scene load_steps=9 format=3 uid="uid://bhoo6ih4t8fi"]
 
 [ext_resource type="Script" path="res://Player/Dropped.gd" id="1_kieud"]
 [ext_resource type="Texture2D" uid="uid://ca216f1wgidsc" path="res://Assets/shotgun/pump_PAShotgunText.png" id="2_h3g4h"]
 [ext_resource type="ArrayMesh" uid="uid://dvpoib7vptljs" path="res://Assets/shotgun/PumpActionShotgunShort.obj" id="3_0l3j5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iptgk"]
+rough = true
+bounce = 0.08
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp2tx"]
 albedo_texture = ExtResource("2_h3g4h")
@@ -17,6 +21,7 @@ points = PackedVector3Array(-2.2769, 0.178295, -0.0620028, -1.12078, 0.770456, 0
 radius = 1.0
 
 [node name="GunDropped" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_iptgk")
 script = ExtResource("1_kieud")
 
 [node name="PumpActionShotgunShort" type="MeshInstance3D" parent="."]
@@ -37,3 +42,5 @@ shape = SubResource("ConvexPolygonShape3D_2u7r2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678872, 0)
 shape = SubResource("SphereShape3D_g852f")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
