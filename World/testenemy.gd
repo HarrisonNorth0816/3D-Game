@@ -23,6 +23,7 @@ func hit(dam):
 	health -= dam
 	if health <= 0:
 		Global.update_deaths()
+		Global.update_score(1)
 		queue_free()
 
 func _on_static_body_3d_body_part_hit(dam):

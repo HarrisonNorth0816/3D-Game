@@ -1,11 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2plb8gyesboc"]
+[gd_scene load_steps=22 format=3 uid="uid://c2plb8gyesboc"]
 
 [ext_resource type="Script" path="res://Maze/Maze.gd" id="1_55hof"]
 [ext_resource type="Script" path="res://Maze/MazeScene.gd" id="1_isoow"]
 [ext_resource type="Texture2D" uid="uid://bsmj5nmgnxvlj" path="res://Assets/Skulls.png" id="2_2pf11"]
 [ext_resource type="PackedScene" uid="uid://t0yco6ftduvq" path="res://Assets/demons/player.tscn" id="2_pyqc4"]
 [ext_resource type="PackedScene" uid="uid://bf4msrdvcyrjk" path="res://Maze/torch.tscn" id="5_e7w06"]
+[ext_resource type="Script" path="res://UI/Menu.gd" id="7_mqovk"]
 [ext_resource type="PackedScene" uid="uid://csnmqouxsqdof" path="res://World/testenemy.tscn" id="7_s7jow"]
+[ext_resource type="FontFile" uid="uid://be5jpsm3f03yg" path="res://Assets/end screen/easvhs.ttf" id="8_kjdqj"]
+[ext_resource type="Script" path="res://World/HUD.gd" id="9_h4q7w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w78cl"]
 albedo_color = Color(0, 0, 0, 1)
@@ -197,3 +200,97 @@ light_energy = 6.746
 
 [node name="Enemy" parent="." instance=ExtResource("7_s7jow")]
 transform = Transform3D(0.994028, -0.109127, 0, 0.109127, 0.994028, 0, 0, 0, 1, 102.061, 0, 122.472)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_s7jow")]
+transform = Transform3D(0.994028, -0.109127, 0, 0.109127, 0.994028, 0, 0, 0, 1, 102.061, 0, 130.605)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_mqovk")
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 568.0
+offset_top = 234.0
+offset_right = 1444.0
+offset_bottom = 726.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.266667)
+
+[node name="Label" type="Label" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 762.5
+offset_top = 310.0
+offset_right = 1249.5
+offset_bottom = 474.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_kjdqj")
+theme_override_font_sizes/font_size = 120
+text = "-PAUSED-"
+horizontal_alignment = 1
+
+[node name="quit" type="Button" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 632.0
+offset_right = 1089.0
+offset_bottom = 707.0
+theme_override_fonts/font = ExtResource("8_kjdqj")
+theme_override_font_sizes/font_size = 50
+text = "-QUIT-"
+
+[node name="restart" type="Button" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 519.0
+offset_right = 1130.0
+offset_bottom = 594.0
+theme_override_fonts/font = ExtResource("8_kjdqj")
+theme_override_font_sizes/font_size = 50
+text = "-RESTART-"
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 88.0
+offset_bottom = 88.0
+script = ExtResource("9_h4q7w")
+
+[node name="ColorRect" type="ColorRect" parent="UI/HUD"]
+layout_mode = 0
+offset_right = 348.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 0.415686)
+
+[node name="Score" type="Label" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_right = 183.0
+offset_bottom = 70.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_kjdqj")
+theme_override_font_sizes/font_size = 50
+text = "Score: "
+
+[connection signal="pressed" from="UI/Menu/quit" to="UI/Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Menu/restart" to="UI/Menu" method="_on_restart_pressed"]
