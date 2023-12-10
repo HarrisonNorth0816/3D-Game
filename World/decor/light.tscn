@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuhdsw1gjxl1r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2v046"]
+albedo_color = Color(0.341176, 0.2, 0.0705882, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ku6bl"]
+material = SubResource("StandardMaterial3D_2v046")
+size = Vector3(0.005, 0.5, 0.005)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mn6jr"]
+data = PackedVector3Array(-0.0025, 0.15, 0.0025, 0.0025, 0.15, 0.0025, -0.0025, -0.15, 0.0025, 0.0025, 0.15, 0.0025, 0.0025, -0.15, 0.0025, -0.0025, -0.15, 0.0025, 0.0025, 0.15, -0.0025, -0.0025, 0.15, -0.0025, 0.0025, -0.15, -0.0025, -0.0025, 0.15, -0.0025, -0.0025, -0.15, -0.0025, 0.0025, -0.15, -0.0025, 0.0025, 0.15, 0.0025, 0.0025, 0.15, -0.0025, 0.0025, -0.15, 0.0025, 0.0025, 0.15, -0.0025, 0.0025, -0.15, -0.0025, 0.0025, -0.15, 0.0025, -0.0025, 0.15, -0.0025, -0.0025, 0.15, 0.0025, -0.0025, -0.15, -0.0025, -0.0025, 0.15, 0.0025, -0.0025, -0.15, 0.0025, -0.0025, -0.15, -0.0025, 0.0025, 0.15, 0.0025, -0.0025, 0.15, 0.0025, 0.0025, 0.15, -0.0025, -0.0025, 0.15, 0.0025, -0.0025, 0.15, -0.0025, 0.0025, 0.15, -0.0025, -0.0025, -0.15, 0.0025, 0.0025, -0.15, 0.0025, -0.0025, -0.15, -0.0025, 0.0025, -0.15, 0.0025, 0.0025, -0.15, -0.0025, -0.0025, -0.15, -0.0025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hyd8"]
+emission_enabled = true
+emission = Color(1, 1, 0.0431373, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_haane"]
+material = SubResource("StandardMaterial3D_8hyd8")
+radius = 0.05
+height = 0.2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22744, 1.10622, 0.229868)
+mesh = SubResource("BoxMesh_ku6bl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mn6jr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.227944, 0.852511, 0.229869)
+mesh = SubResource("SphereMesh_haane")

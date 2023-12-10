@@ -24,7 +24,7 @@ func _process(_delta):
 
 func update_deaths():
 	kills += 1
-	if kills == 2:
+	if kills == 5:
 		get_tree().change_scene_to_file("res://Assets/end screen/win.tscn")
 		
 func update_score(s):

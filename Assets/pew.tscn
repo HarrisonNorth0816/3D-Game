@@ -28,56 +28,48 @@ albedo_color = Color(0.435294, 0.32549, 0.223529, 1)
 [node name="Chair" type="Node3D"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
-[node name="Legs" type="Node" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Legs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259758, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0519516, 0)
 mesh = SubResource("BoxMesh_jc8gd")
-skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Legs/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0w3iw")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Legs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259758, 1.60393)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0519516, 0.320786)
 mesh = SubResource("BoxMesh_jc8gd")
-skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Legs/MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_let0e")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Legs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.524071, 0.259758, 0)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.104814, 0.0519516, 0)
 mesh = SubResource("BoxMesh_jc8gd")
-skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Legs/MeshInstance3D3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/MeshInstance3D3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3blce")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Legs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.524071, 0.259758, 1.60393)
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.104814, 0.0519516, 0.320786)
 mesh = SubResource("BoxMesh_jc8gd")
-skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Legs/MeshInstance3D4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/MeshInstance3D4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0rj1m")
 
-[node name="Seat" type="Node" parent="."]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Seat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.259559, 0.827597, 0.806403)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0519118, 0.165519, 0.161281)
 size = Vector3(0.644124, 0.649389, 1.69905)
 material = SubResource("StandardMaterial3D_vja68")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Seat/CSGBox3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0562572, 0.0729443, 0)
 operation = 2
 size = Vector3(0.557828, 0.577053, 1.70816)
