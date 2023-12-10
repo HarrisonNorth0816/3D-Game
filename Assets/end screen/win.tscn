@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqxfwkfnkeywt"]
+[gd_scene load_steps=8 format=3 uid="uid://bqxfwkfnkeywt"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/winRain.gdshader" id="1_gqbef"]
 [ext_resource type="Script" path="res://Assets/end screen/win.gd" id="1_welca"]
 [ext_resource type="FontFile" uid="uid://be5jpsm3f03yg" path="res://Assets/end screen/easvhs.ttf" id="2_dx8lr"]
 [ext_resource type="AudioStream" uid="uid://cy31jruo0sf68" path="res://Assets/titlescreen/rain.mp3" id="3_pfdyp"]
+[ext_resource type="Script" path="res://Assets/end screen/updateScore.gd" id="3_vi1nh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ydge"]
 shader = ExtResource("1_gqbef")
@@ -28,6 +29,7 @@ color = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_6ydge")
 offset_right = 1915.0
 offset_bottom = 1081.0
+script = ExtResource("3_vi1nh")
 
 [node name="Label" type="Label" parent="Rain"]
 layout_mode = 1

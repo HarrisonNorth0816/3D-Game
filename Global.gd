@@ -32,7 +32,10 @@ func update_deaths():
 func update_score(s):
 	score += s
 	var HUD = get_node_or_null("/root/MazeScene/UI/HUD")
+	var finalScore = get_node_or_null("/root/victory/Rain")
 	if HUD != null:
 		HUD.update_score()
+	if finalScore != null:
+		finalScore.update_score()
 
 
