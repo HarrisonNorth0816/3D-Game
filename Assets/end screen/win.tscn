@@ -1,7 +1,79 @@
-[gd_scene format=3 uid="uid://bqxfwkfnkeywt"]
+[gd_scene load_steps=7 format=3 uid="uid://bqxfwkfnkeywt"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/winRain.gdshader" id="1_gqbef"]
+[ext_resource type="Script" path="res://Assets/end screen/win.gd" id="1_welca"]
+[ext_resource type="FontFile" uid="uid://be5jpsm3f03yg" path="res://Assets/end screen/easvhs.ttf" id="2_dx8lr"]
+[ext_resource type="AudioStream" uid="uid://cy31jruo0sf68" path="res://Assets/titlescreen/rain.mp3" id="3_pfdyp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ydge"]
+shader = ExtResource("1_gqbef")
+shader_parameter/count = 150
+shader_parameter/slant = -0.01
+shader_parameter/speed = 50.0
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.005, 0.2)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q6y2j"]
 
 [node name="victory" type="Node2D"]
+script = ExtResource("1_welca")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1931.0
-offset_bottom = 1098.0
+offset_right = 1918.0
+offset_bottom = 1079.0
+color = Color(0, 0, 0, 1)
+
+[node name="Rain" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6ydge")
+offset_right = 1915.0
+offset_bottom = 1081.0
+
+[node name="Label" type="Label" parent="Rain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dx8lr")
+theme_override_font_sizes/font_size = 40
+text = "After vanquishing the demons in the church you emerge victorius
+
+You inform the villagers of Father Garcias fate, and offer to find a replacement
+
+You drive away, ready to challenge the next threat you are called to
+
+because you have"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Rain"]
+material = SubResource("CanvasItemMaterial_q6y2j")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = 212.0
+offset_right = 4.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.909804, 0.784314, 0.0392157, 1)
+theme_override_fonts/font = ExtResource("2_dx8lr")
+theme_override_font_sizes/font_size = 40
+text = "FAITH"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pfdyp")
+autoplay = true
+
+[connection signal="pressed" from="Rain/Button" to="." method="_on_button_pressed"]
