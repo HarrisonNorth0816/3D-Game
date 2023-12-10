@@ -100,9 +100,6 @@ func _headbob(time) -> Vector3:
 	pos.x = cos(time * BOB_FREQ) * BOB_AMP
 	return pos
 
-func pickup(weapon):
-	$Pivot/Camera3D/Shotgun.add_child(weapon)
-
 
 func die():
 	get_tree().change_scene_to_file("res://Assets/end screen/death.tscn")

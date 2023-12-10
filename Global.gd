@@ -4,25 +4,23 @@ var kills = 0
 var score = 0
 
 func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS# global should never be paused
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	
-func _input(event):
-	if event.is_action_pressed("Pause"):
+func _process(_delta):
+	if Input.is_action_just_pressed("Pause"):
 		var menu = get_node_or_null("/root/Game/UI/Menu")
 		if menu == null:
 			get_tree().quit()
 		else:
-			if menu.hidden:
-				menu.show()
-				get_tree().paused = true
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				print("you can see the menu")
-			else:
-				menu.hide()
+			if menu.visible:
 				get_tree().paused = false
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				print("You cant see the menu")
+				menu.hide()
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			else:
+				get_tree().paused = true
+				menu.show()
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func update_deaths():
 	kills += 1
@@ -37,5 +35,10 @@ func update_score(s):
 		HUD.update_score()
 	if finalScore != null:
 		finalScore.update_score()
+		
+func reset():
+	get_tree().paused = false
+	score = 0
+	
 
 

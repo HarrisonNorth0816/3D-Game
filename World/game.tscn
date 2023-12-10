@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ojaawgmkk1c" path="res://Assets/Skybox.png" id="1_nyhv7"]
 [ext_resource type="Script" path="res://World/game.gd" id="1_oexl6"]
 [ext_resource type="Texture2D" uid="uid://bq4jdvnu3qosa" path="res://Assets/grass.png" id="1_vwi8n"]
+[ext_resource type="Script" path="res://Player/Menu.gd" id="2_gq4rk"]
 [ext_resource type="PackedScene" uid="uid://b8xtn2slmk1vy" path="res://church.tscn" id="4_aq5gf"]
 [ext_resource type="Script" path="res://World/HUD.gd" id="4_hpm06"]
 [ext_resource type="PackedScene" uid="uid://t0yco6ftduvq" path="res://Assets/demons/player.tscn" id="9_8jt6i"]
@@ -16,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://b7hqnfrfd12o" path="res://Assets/girl/PSX_Villager_Woman_Model_And_Animations.gltf" id="14_tdouc"]
 [ext_resource type="Texture2D" uid="uid://dkyncw33k6smo" path="res://Assets/girl/VillageWomanTexture.png" id="15_bm3so"]
 [ext_resource type="Script" path="res://World/NewLevel.gd" id="17_0qv6a"]
-[ext_resource type="Script" path="res://UI/Menu.gd" id="17_1q7gw"]
 [ext_resource type="AudioStream" uid="uid://n8gcxebiyy0r" path="res://Assets/girl/outside.mp3" id="17_44es8"]
 [ext_resource type="PackedScene" uid="uid://607u6mqvfk18" path="res://Assets/church.tscn" id="17_ftrcu"]
 [ext_resource type="FontFile" uid="uid://be5jpsm3f03yg" path="res://Assets/end screen/easvhs.ttf" id="18_iega1"]
@@ -71,7 +71,7 @@ data = PackedVector3Array(0.8963, 2.0896, -2.1098, 0, 2.0896, -2.1098, 1.0184, 1
 
 [sub_resource type="GDScript" id="GDScript_hffeg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uakol"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cjad"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("11_t2jje")
@@ -106,7 +106,7 @@ _surfaces = [{
 "format": 4127,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_uakol"),
+"material": SubResource("ShaderMaterial_7cjad"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127, 255, 127, 255, 191)
@@ -180,94 +180,6 @@ Press F to interact with NPCs
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_oexl6")
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Menu" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("17_1q7gw")
-
-[node name="ColorRect2" type="ColorRect" parent="UI/Menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 568.0
-offset_top = 234.0
-offset_right = 1444.0
-offset_bottom = 726.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.266667)
-
-[node name="Label" type="Label" parent="UI/Menu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 762.5
-offset_top = 310.0
-offset_right = 1249.5
-offset_bottom = 474.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("18_iega1")
-theme_override_font_sizes/font_size = 120
-text = "-PAUSED-"
-horizontal_alignment = 1
-
-[node name="quit" type="Button" parent="UI/Menu"]
-layout_mode = 0
-offset_left = 936.0
-offset_top = 632.0
-offset_right = 1089.0
-offset_bottom = 707.0
-theme_override_fonts/font = ExtResource("18_iega1")
-theme_override_font_sizes/font_size = 50
-text = "-QUIT-"
-
-[node name="restart" type="Button" parent="UI/Menu"]
-layout_mode = 0
-offset_left = 900.0
-offset_top = 519.0
-offset_right = 1130.0
-offset_bottom = 594.0
-theme_override_fonts/font = ExtResource("18_iega1")
-theme_override_font_sizes/font_size = 50
-text = "-RESTART-"
-
-[node name="HUD" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 48.0
-offset_top = 48.0
-offset_right = 88.0
-offset_bottom = 88.0
-script = ExtResource("4_hpm06")
-
-[node name="ColorRect" type="ColorRect" parent="UI/HUD"]
-layout_mode = 0
-offset_right = 348.0
-offset_bottom = 110.0
-color = Color(0, 0, 0, 0.415686)
-
-[node name="Score" type="Label" parent="UI/HUD"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 21.0
-offset_right = 183.0
-offset_bottom = 70.0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("18_iega1")
-theme_override_font_sizes/font_size = 50
-text = "Score: "
 
 [node name="OtherGround" type="Node" parent="."]
 
@@ -3717,9 +3629,100 @@ transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -34.1082, 2.71415, 0)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -24.9849, 2.26127, -4.19159)
 mesh = SubResource("TextMesh_pspdf")
 
-[connection signal="pressed" from="UI/Menu/quit" to="UI/Menu" method="_on_quit_pressed"]
-[connection signal="pressed" from="UI/Menu/restart" to="UI/Menu" method="_on_restart_pressed"]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_gq4rk")
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 568.0
+offset_top = 234.0
+offset_right = 1444.0
+offset_bottom = 726.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.266667)
+
+[node name="Label" type="Label" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 762.5
+offset_top = 310.0
+offset_right = 1249.5
+offset_bottom = 474.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("18_iega1")
+theme_override_font_sizes/font_size = 120
+text = "-PAUSED-"
+horizontal_alignment = 1
+
+[node name="quit" type="Button" parent="UI/Menu"]
+process_mode = 3
+layout_mode = 0
+offset_left = 936.0
+offset_top = 632.0
+offset_right = 1089.0
+offset_bottom = 707.0
+theme_override_fonts/font = ExtResource("18_iega1")
+theme_override_font_sizes/font_size = 50
+text = "-QUIT-"
+
+[node name="restart" type="Button" parent="UI/Menu"]
+process_mode = 3
+layout_mode = 0
+offset_left = 900.0
+offset_top = 519.0
+offset_right = 1130.0
+offset_bottom = 594.0
+theme_override_fonts/font = ExtResource("18_iega1")
+theme_override_font_sizes/font_size = 50
+text = "-RESTART-"
+
+[node name="HUD" type="Control" parent="UI"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 88.0
+offset_bottom = 88.0
+script = ExtResource("4_hpm06")
+
+[node name="ColorRect" type="ColorRect" parent="UI/HUD"]
+layout_mode = 0
+offset_right = 348.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 0.415686)
+
+[node name="Score" type="Label" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_right = 183.0
+offset_bottom = 70.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_iega1")
+theme_override_font_sizes/font_size = 50
+text = "Score: "
+
 [connection signal="body_entered" from="PSX_Villager_Woman_Model_And_Animations/Body/Area3D" to="PSX_Villager_Woman_Model_And_Animations/Body/Area3D" method="_on_body_entered"]
 [connection signal="body_entered" from="Hole/Exit" to="Hole/Exit" method="_on_body_entered"]
+[connection signal="pressed" from="UI/Menu/quit" to="UI/Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Menu/restart" to="UI/Menu" method="_on_restart_pressed"]
 
 [editable path="PSX_Villager_Woman_Model_And_Animations"]

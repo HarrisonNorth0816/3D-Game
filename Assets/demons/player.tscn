@@ -29,8 +29,8 @@ transform = Transform3D(0.769231, 0, 0, 0, 0.769231, 0, 0, 0, 0.769231, 0, 0, 0)
 fov = 90.0
 
 [node name="Shotgun" parent="Pivot/Camera3D" instance=ExtResource("2_y2sym")]
-transform = Transform3D(0.0427706, 0, 0.698692, 0, 0.7, 0, -0.698692, 0, 0.0427706, 0.71469, -0.770084, -0.859237)
-script = null
+unique_name_in_owner = true
+transform = Transform3D(-0.0697217, 0, 0.997567, 0, 1, 0, -0.997567, 0, -0.0697217, 0.722895, -0.914129, -1.5843)
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_271wp")
