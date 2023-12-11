@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://6n16q1kbw83j"]
+[gd_scene load_steps=32 format=3 uid="uid://6n16q1kbw83j"]
 
 [ext_resource type="Texture2D" uid="uid://dmhvkh1qkp81u" path="res://Assets/Redbrick.png" id="1_gxxt8"]
 [ext_resource type="PackedScene" uid="uid://ek0c377xhu85" path="res://Player/tempplayer.tscn" id="1_jtt0u"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ddsfdfovdt6nh" path="res://Player/shotgun.tscn" id="9_ifyy1"]
 [ext_resource type="PackedScene" uid="uid://bmh8s3to3tl53" path="res://bed.tscn" id="11_nofdu"]
 [ext_resource type="PackedScene" uid="uid://sn2bp2sf6k17" path="res://tv.tscn" id="12_s3oe2"]
+[ext_resource type="FontFile" uid="uid://be5jpsm3f03yg" path="res://Assets/end screen/easvhs.ttf" id="13_dx4wv"]
+[ext_resource type="Script" path="res://World/HUD.gd" id="14_gut00"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ualxb"]
 albedo_color = Color(0.0823529, 0.054902, 0.0117647, 1)
@@ -68,7 +70,18 @@ data = PackedVector3Array(-0.25, 1.5, 1, 0.25, 1.5, 1, -0.25, -1.5, 1, 0.25, 1.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_riokv"]
 size = Vector3(1.54468, 6.55081, 2.73315)
 
-[node name="Node2D" type="Node3D"]
+[sub_resource type="GDScript" id="GDScript_uj3jf"]
+script/source = "extends Control
+
+func _on_quit_pressed():
+	get_tree().quit()
+
+func _on_restart_pressed():
+	Global.reset()
+	get_tree().change_scene_to_file(\"res://World/firstlevel.tscn\")
+"
+
+[node name="Game" type="Node3D"]
 
 [node name="Room" type="Node" parent="."]
 
@@ -196,4 +209,97 @@ transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -0.176298, 0.287577, 2.
 [node name="Node3D2" parent="." instance=ExtResource("12_s3oe2")]
 transform = Transform3D(2.08254, 0, -1.38312, 0, 2.5, 0, 1.38312, 0, 2.08254, 3.72922, -0.116732, -4.85454)
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_uj3jf")
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 568.0
+offset_top = 234.0
+offset_right = 1444.0
+offset_bottom = 726.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.266667)
+
+[node name="Label" type="Label" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 762.5
+offset_top = 310.0
+offset_right = 1249.5
+offset_bottom = 474.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("13_dx4wv")
+theme_override_font_sizes/font_size = 120
+text = "-PAUSED-"
+horizontal_alignment = 1
+
+[node name="quit" type="Button" parent="UI/Menu"]
+process_mode = 3
+layout_mode = 0
+offset_left = 936.0
+offset_top = 632.0
+offset_right = 1089.0
+offset_bottom = 707.0
+theme_override_fonts/font = ExtResource("13_dx4wv")
+theme_override_font_sizes/font_size = 50
+text = "-QUIT-"
+
+[node name="restart" type="Button" parent="UI/Menu"]
+process_mode = 3
+layout_mode = 0
+offset_left = 900.0
+offset_top = 519.0
+offset_right = 1130.0
+offset_bottom = 594.0
+theme_override_fonts/font = ExtResource("13_dx4wv")
+theme_override_font_sizes/font_size = 50
+text = "-RESTART-"
+
+[node name="HUD" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 88.0
+offset_bottom = 88.0
+script = ExtResource("14_gut00")
+
+[node name="ColorRect" type="ColorRect" parent="UI/HUD"]
+layout_mode = 0
+offset_right = 348.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 0.415686)
+
+[node name="Score" type="Label" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_right = 183.0
+offset_bottom = 70.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_dx4wv")
+theme_override_font_sizes/font_size = 50
+text = "Score: "
+
 [connection signal="body_entered" from="Room/Door/doorExit" to="Room/Door/doorExit" method="_on_body_entered"]
+[connection signal="pressed" from="UI/Menu/quit" to="UI/Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Menu/restart" to="UI/Menu" method="_on_restart_pressed"]

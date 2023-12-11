@@ -99,14 +99,14 @@ func _on_quit_pressed():
 
 func _on_restart_pressed():
 	Global.reset()
-	get_tree().change_scene_to_file(\"res://World/game.tscn\")
+	get_tree().change_scene_to_file(\"res://World/firstlevel.tscn\")
 "
 
 [sub_resource type="Environment" id="Environment_vgfko"]
 fog_enabled = true
 fog_light_color = Color(0.552941, 0.588235, 0.643137, 1)
 
-[node name="MazeScene" type="Node3D"]
+[node name="Game" type="Node3D"]
 script = ExtResource("1_isoow")
 
 [node name="Entrance" type="Node" parent="."]
@@ -425,6 +425,7 @@ text = "-PAUSED-"
 horizontal_alignment = 1
 
 [node name="quit" type="Button" parent="UI/Menu"]
+process_mode = 3
 layout_mode = 0
 offset_left = 936.0
 offset_top = 632.0
@@ -435,6 +436,7 @@ theme_override_font_sizes/font_size = 50
 text = "-QUIT-"
 
 [node name="restart" type="Button" parent="UI/Menu"]
+process_mode = 3
 layout_mode = 0
 offset_left = 900.0
 offset_top = 519.0

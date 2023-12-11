@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1qrpxvobwvwm"]
+[gd_scene load_steps=6 format=3 uid="uid://c1qrpxvobwvwm"]
 
 [ext_resource type="Texture2D" uid="uid://bxi67vrnp0tam" path="res://Assets/paper.png" id="1_uoq8a"]
 [ext_resource type="Script" path="res://paper.gd" id="2_ke1ji"]
 [ext_resource type="FontFile" uid="uid://be5jpsm3f03yg" path="res://Assets/end screen/easvhs.ttf" id="3_vhopp"]
+[ext_resource type="AudioStream" uid="uid://c5yrlmeeuwbeb" path="res://Assets/demons/johnline.wav" id="4_tna50"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8ins"]
 size = Vector3(1.19803, 1.4859, 0.432799)
@@ -57,7 +58,10 @@ text = "TEST"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 7.59
+
+[node name="john" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_tna50")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

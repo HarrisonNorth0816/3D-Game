@@ -10,6 +10,9 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
 		var menu = get_node_or_null("/root/Game/UI/Menu")
+#		var firstMenu = get_node_or_null("/root/Game/UI/Menu")
+#		var mazeMenu = get_node_or_null("/root/MazeScene/UI/Menu")
+		
 		if menu == null:
 			get_tree().quit()
 		else:
@@ -21,7 +24,30 @@ func _process(_delta):
 				get_tree().paused = true
 				menu.show()
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
+				
+#		if firstMenu == null:
+#			get_tree().quit()
+#		else:
+#			if firstMenu.visible:
+#				get_tree().paused = false
+#				firstMenu.hide()
+#				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#			else:
+#				get_tree().paused = true
+#				firstMenu.show()
+#				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+#
+#		if mazeMenu == null:
+#			get_tree().quit()
+#		else:
+#			if mazeMenu.visible:
+#				get_tree().paused = false
+#				mazeMenu.hide()
+#				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#			else:
+#				get_tree().paused = true
+#				menu.show()
+#				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 func update_deaths():
 	kills += 1
 	if kills == 5:
